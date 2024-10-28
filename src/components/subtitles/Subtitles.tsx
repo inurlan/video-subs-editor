@@ -1,9 +1,9 @@
-import { MediaSyncContext } from '@/pages/context/MediaSyncProvider';
+import { MediaSyncContext } from '@/context/MediaSyncProvider';
 import { useContext } from 'react';
 import FileUploadField from '../FileUploadField';
-import srtToSubtitles from '@/pages/helpers/srtToSubtitles';
+import srtToSubtitles from '@/helpers/srtToSubtitles';
 import Table from '../table/Table';
-import { Data } from '@/pages/types/genericTypes';
+import { Data } from '@/types/genericTypes';
 
 export default function Subtitle() {
   const { playbackState, setRows } = useContext(MediaSyncContext);

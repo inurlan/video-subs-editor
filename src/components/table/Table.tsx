@@ -7,6 +7,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  TableRowOwnProps,
 } from '@mui/material';
 import {
   TableVirtuoso,
@@ -18,8 +19,8 @@ import TableToolbar from './TableToolbar';
 
 import RowContent from './RowContent';
 import FixedHeaderContent from './FixedHeaderContent';
-import { MediaSyncContext } from '@/pages/context/MediaSyncProvider';
-import { Data, ColumnData, DataError } from '@/pages/types/genericTypes';
+import { MediaSyncContext } from '@/context/MediaSyncProvider';
+import { Data, ColumnData, DataError } from '@/types/genericTypes';
 
 const columns: ColumnData[] = [
   {
@@ -71,9 +72,14 @@ export default function Table() {
     behavior: 'smooth',
   });
 
-  function Row(props: any) {
+  function Row(
+    props: TableRowOwnProps & {
+      item: Data;
+    }
+  ) {
     const handleClick = () => {
-      videoRef.current.currentTime = props.item.start / 1000;
+      if (videoRef.current)
+        videoRef.current.currentTime = props.item.start / 1000;
     };
 
     return (
@@ -231,26 +237,32 @@ export default function Table() {
 }
 
 const VirtuosoTableComponents: TableComponents<Data> = {
-  Scroller: React.forwardRef<HTMLDivElement>((props, ref) => (
-    <TableContainer component={Paper} {...props} ref={ref} />
-  )),
-  Table: (props) => (
-    <MaterialTable
-      {...props}
-      sx={{
-        borderCollapse: 'separate',
-        tableLayout: 'fixed',
-        '.MuiTableRow-root.Mui-selected': {
-          backgroundColor: '#faebfc',
-        },
-      }}
-    />
+  Scroller: React.forwardRef<HTMLDivElement>(function Scroller(props, ref) {
+    return <TableContainer component={Paper} {...props} ref={ref} />;
+  }),
+  Table: function Table(props) {
+    return (
+      <MaterialTable
+        {...props}
+        sx={{
+          borderCollapse: 'separate',
+          tableLayout: 'fixed',
+          '.MuiTableRow-root.Mui-selected': {
+            backgroundColor: '#faebfc',
+          },
+        }}
+      />
+    );
+  },
+  TableHead: React.forwardRef<HTMLTableSectionElement>(
+    function THead(props, ref) {
+      return <TableHead {...props} ref={ref} />;
+    }
   ),
-  TableHead: React.forwardRef<HTMLTableSectionElement>((props, ref) => (
-    <TableHead {...props} ref={ref} />
-  )),
   TableRow,
-  TableBody: React.forwardRef<HTMLTableSectionElement>((props, ref) => (
-    <TableBody {...props} ref={ref} />
-  )),
+  TableBody: React.forwardRef<HTMLTableSectionElement>(
+    function TBody(props, ref) {
+      return <TableBody {...props} ref={ref} />;
+    }
+  ),
 };

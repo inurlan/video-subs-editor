@@ -1,4 +1,4 @@
-import { MediaSyncContext } from '@/pages/context/MediaSyncProvider';
+import { MediaSyncContext } from '@/context/MediaSyncProvider';
 import { useContext, useState } from 'react';
 import AudioTrackCursors from './AudioTrackCursor';
 import AudioTrackBackground from './AudioTrackBackground';

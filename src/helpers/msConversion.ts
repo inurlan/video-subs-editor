@@ -1,8 +1,8 @@
 export default function msConversion(millis: number) {
-  let dateObj = new Date(millis);
-  let hours = dateObj.getUTCHours();
-  let minutes = dateObj.getUTCMinutes();
-  let seconds = dateObj.getSeconds();
+  const dateObj = new Date(millis);
+  const hours = dateObj.getUTCHours();
+  const minutes = dateObj.getUTCMinutes();
+  const seconds = dateObj.getSeconds();
   return (
     hours.toString().padStart(2, '0') +
     ':' +

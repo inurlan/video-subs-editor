@@ -1,10 +1,10 @@
+import MediaSyncProvider from '@/context/MediaSyncProvider';
+import { Subtitles } from '@mui/icons-material';
 import '../styles/Home.module.scss';
 import { CssBaseline, Container, Grid2, Paper } from '@mui/material';
 import React from 'react';
-import VideoPlayer from './components/player/VideoPlayer';
-import MediaSyncProvider from './context/MediaSyncProvider';
-import AudioTrack from './components/audio/AudioTrack';
-import Subtitles from './components/subtitles/Subtitles';
+import AudioTrack from '@/components/audio/AudioTrack';
+import VideoPlayer from '@/components/player/VideoPlayer';
 
 export default function Home() {
   return (

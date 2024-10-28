@@ -1,15 +1,19 @@
-import msConversion from '@/pages/helpers/msConversion';
+import msConversion from '@/helpers/msConversion';
 import { TableCell } from '@mui/material';
 import DebouncedTextField from '../DebouncedTextField';
 import DebouncedTimeField from '../DebouncedTimeField';
 import MergeButton from './MergeButton';
-import { Data, ColumnData, DataError } from '@/pages/types/genericTypes';
+import { Data, ColumnData, DataError } from '@/types/genericTypes';
 
 export default function RowContent(props: {
   index: number;
   row: Data;
-  handleRowsMerge: Function;
-  handleRowUpdate: Function;
+  handleRowsMerge: (index: number) => void;
+  handleRowUpdate: (
+    debouncedValue: string | number,
+    dataKey: string,
+    index: number
+  ) => void;
   canEdit: boolean;
   errors: DataError[] | [];
   columns: ColumnData[];

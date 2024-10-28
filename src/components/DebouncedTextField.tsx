@@ -13,7 +13,7 @@ export default function DebouncedTextField(props: DebouncedTextField) {
   const [inputText, setInputText] = useState<string>(value);
 
   useEffect(() => {
-    if (value !== inputText) setInputText(value);
+    setInputText(value);
   }, [value]);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function DebouncedTextField(props: DebouncedTextField) {
     return () => {
       clearTimeout(debounceTimer);
     };
-  }, [inputText, delay]);
+  }, [inputText, delay, onUpdate, value]);
 
   const handleTextChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>

@@ -1,6 +1,6 @@
-import { MediaSyncContext } from '@/pages/context/MediaSyncProvider';
+import { MediaSyncContext } from '@/context/MediaSyncProvider';
 import React, { useContext, useEffect, useRef } from 'react';
-import jsonToVttBlob from '@/pages/helpers/jsonToVttBlob';
+import jsonToVttBlob from '@/helpers/jsonToVttBlob';
 
 export default function Video(props: { videoUrl: string | null }) {
   const { videoUrl } = props;
@@ -24,7 +24,7 @@ export default function Video(props: { videoUrl: string | null }) {
         video.removeEventListener('loadedmetadata', handleLoadedMetadata);
       };
     }
-  }, []);
+  }, [videoRef, setVideoDuration]);
 
   useEffect(() => {
     const track = trackRef.current;

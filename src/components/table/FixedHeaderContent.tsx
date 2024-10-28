@@ -1,4 +1,4 @@
-import { ColumnData } from '@/pages/types/genericTypes';
+import { ColumnData } from '@/types/genericTypes';
 import { TableRow, TableCell } from '@mui/material';
 
 export default function FixedHeaderContent(props: { columns: ColumnData[] }) {

@@ -1,5 +1,5 @@
-import { MediaSyncContext } from '@/pages/context/MediaSyncProvider';
-import dragElement from '@/pages/helpers/dragElement';
+import { MediaSyncContext } from '@/context/MediaSyncProvider';
+import dragElement from '@/helpers/dragElement';
 import { useRef, useContext, useEffect } from 'react';
 
 export default function AudioTrackCursors() {
@@ -8,6 +8,7 @@ export default function AudioTrackCursors() {
 
   useEffect(() => {
     const cursor = cursorRef.current;
+
     const video = videoRef.current;
 
     if (cursor && video) {
@@ -16,7 +17,7 @@ export default function AudioTrackCursors() {
 
       cursorVideoSynchronization(cursor, video, audioContainerWidth);
     }
-  }, [playbackState.videoDuration]);
+  }, [playbackState.videoDuration, playbackState.rezolution, videoRef]);
 
   return (
     <div ref={cursorRef} className="audio-cursor">

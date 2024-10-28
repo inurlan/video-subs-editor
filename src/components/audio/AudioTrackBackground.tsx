@@ -1,4 +1,4 @@
-import { MediaSyncContext } from '@/pages/context/MediaSyncProvider';
+import { MediaSyncContext } from '@/context/MediaSyncProvider';
 import { useContext } from 'react';
 
 export default function AudioTrackBackground(props: {

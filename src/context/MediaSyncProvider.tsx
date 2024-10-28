@@ -1,13 +1,33 @@
-import { useState, useRef, useEffect, createContext } from 'react';
-import { Data, PlaybackState } from '../types/genericTypes';
+import { useState, useRef, useEffect, createContext, RefObject } from 'react';
+import {
+  Data,
+  PlaybackState,
+  MediaSyncContextType,
+} from '../types/genericTypes';
 
-export const MediaSyncContext = createContext<any>({
+export const MediaSyncContext = createContext<MediaSyncContextType>({
+  audioBuffer: undefined,
+  setAudioBuffer: () => {},
+  setVideoDuration: () => {},
+  setRows: () => {},
   rows: [],
-  videoRef: {},
-  playbackState: {},
+  videoRef: {} as RefObject<HTMLVideoElement>,
+  audioTrackRef: {} as RefObject<HTMLDivElement>,
+  playbackState: {
+    currentSubIndex: 0,
+    subtitles: [],
+    currentTime: 0,
+    videoDuration: 0,
+    subtitlesDuration: 0,
+    rezolution: 0,
+  },
 });
 
-export default function MediaSyncProvider({ children }: any) {
+export default function MediaSyncProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [audioBuffer, setAudioBuffer] = useState<AudioBuffer>();
   const [playbackState, setPlaybackState] = useState<PlaybackState>({
     currentSubIndex: 0,
@@ -20,7 +40,7 @@ export default function MediaSyncProvider({ children }: any) {
 
   const playbackStateRef = useRef(playbackState);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const audioTrackRef = useRef<HTMLVideoElement>(null);
+  const audioTrackRef = useRef<HTMLDivElement>(null);
 
   // Update ref whenever playbackState changes
   // This is done in order to avoid consturction and

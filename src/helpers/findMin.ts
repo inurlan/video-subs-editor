@@ -1,4 +1,4 @@
-export const findMin = (arr: number[], start: number, end: number) => {
+export const findMin = (arr: Float32Array, start: number, end: number) => {
   let min = Infinity;
   for (let i = start; i < end; i++) {
     if (arr[i] < min) {

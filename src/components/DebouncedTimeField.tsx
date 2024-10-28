@@ -11,11 +11,11 @@ interface DebouncedTimeField {
 }
 
 export default function DebouncedTimeField(props: DebouncedTimeField) {
-  const { value, onUpdate, error = false, delay = 1000 } = props;
+  const { value, onUpdate, error = false, delay = 500 } = props;
   const [inputTime, setInputTime] = useState<number>(value);
 
   useEffect(() => {
-    if (value !== inputTime) setInputTime(value);
+    setInputTime(value);
   }, [value]);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function DebouncedTimeField(props: DebouncedTimeField) {
     return () => {
       clearTimeout(debounceTimer);
     };
-  }, [inputTime, delay]);
+  }, [inputTime, delay, onUpdate, value]);
 
   const handleTextChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>

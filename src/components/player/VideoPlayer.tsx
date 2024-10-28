@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import FileUploadField from '../FileUploadField';
 import Video from './Video';
-import { MediaSyncContext } from '@/pages/context/MediaSyncProvider';
+import { MediaSyncContext } from '@/context/MediaSyncProvider';
 
 export default function VideoPlayer() {
   const { setAudioBuffer } = useContext(MediaSyncContext);

@@ -1,6 +1,6 @@
-import { MediaSyncContext } from '@/pages/context/MediaSyncProvider';
-import msConversion from '@/pages/helpers/msConversion';
-import { Data } from '@/pages/types/genericTypes';
+import { MediaSyncContext } from '@/context/MediaSyncProvider';
+import msConversion from '@/helpers/msConversion';
+import { Data } from '@/types/genericTypes';
 import { useContext } from 'react';
 
 export default function AudioTrackSubtitles() {

@@ -1,3 +1,5 @@
+import { Dispatch, RefObject, SetStateAction } from 'react';
+
 export type Data = {
   merge: string;
   id: number;
@@ -26,4 +28,15 @@ export type PlaybackState = {
   videoDuration: number;
   subtitlesDuration: number;
   rezolution: number;
+};
+
+export type MediaSyncContextType = {
+  audioBuffer: AudioBuffer | undefined;
+  setAudioBuffer: Dispatch<SetStateAction<AudioBuffer | undefined>>;
+  playbackState: PlaybackState;
+  videoRef: RefObject<HTMLVideoElement>;
+  audioTrackRef: RefObject<HTMLDivElement>;
+  rows: Data[];
+  setVideoDuration: (videoDuration: number) => void;
+  setRows: (newRows: Data[]) => void;
 };
