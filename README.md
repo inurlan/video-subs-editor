@@ -33,10 +33,10 @@ Try the **Video Subtitles Editor** in action: [Live Demo](https://video-subs-edi
    npm install
    ```
 
-3. **Run the application**:
+3. **Run the application on develeopment**:
 
    ```bash
-   npm start
+   npm run dev
    ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser to use the app locally.
