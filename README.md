@@ -1,7 +1,5 @@
 # Video Subtitles Editor
 
-![Video Subtitles Editor](https://video-subs-editor.netlify.app/favicon.png)
-
 **Video Subtitles Editor** is a web-based application for editing and synchronizing subtitles on video files. This tool accepts `.srt` subtitle files and `.mp4` videos, providing a streamlined workflow for precise subtitle editing. Perfect for content creators, translators, and video editors, the editor allows you to align subtitles accurately with video and audio.
 
 [![Live Demo](https://img.shields.io/badge/Live-Demo-green)](https://video-subs-editor.netlify.app/)
