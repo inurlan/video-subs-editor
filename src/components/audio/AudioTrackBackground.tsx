@@ -21,8 +21,9 @@ export default function AudioTrackBackground(props: {
         width: Math.max(audioContainerWidth, subtitlesContainerWidth), // max-content
         backgroundImage: `url(${audioWaveformImage})`,
         opacity: 0.8,
+        backgroundPositionY: 'center',
         backgroundRepeat: 'no-repeat',
-        backgroundSize: `${audioContainerWidth}px ${innerHeight}px`,
+        backgroundSize: `${audioContainerWidth}px ${innerHeight / 2}px`,
       }}
     >
       {children}

@@ -2,11 +2,13 @@ import { Toolbar, Typography, FormControlLabel, Switch } from '@mui/material';
 
 interface TableToolbar {
   canEdit: boolean;
-  onChange: () => void;
+  onSwitchChange: (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
 }
 
 export default function TableToolbar(props: TableToolbar) {
-  const { canEdit, onChange } = props;
+  const { canEdit, onSwitchChange } = props;
   return (
     <Toolbar>
       <Typography
@@ -20,7 +22,7 @@ export default function TableToolbar(props: TableToolbar) {
       <FormControlLabel
         labelPlacement="start"
         label={canEdit ? 'Disable Edit' : 'Enable Edit'}
-        control={<Switch value={canEdit} onChange={onChange} />}
+        control={<Switch value={canEdit} onChange={onSwitchChange} />}
       />
     </Toolbar>
   );

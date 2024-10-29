@@ -34,7 +34,10 @@ export default function RowContent(props: {
         <TableCell key={dataKey} align={'left'}>
           {dataKey === 'merge' && index > 0 ? (
             <MergeButton
-              onClick={() => handleRowsMerge(index)}
+              onClick={(e) => {
+                e.preventDefault();
+                handleRowsMerge(index);
+              }}
               canEdit={canEdit}
             />
           ) : dataKey === 'text' && canEdit ? (

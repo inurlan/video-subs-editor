@@ -30,7 +30,7 @@ export default function AudioWaveform(props: {
       // Draw waveform
       const data = audioBuffer.getChannelData(0); // Get data for the first channel
       const step = Math.ceil(data.length / width); // Step through audio data
-      const amp = 80;
+      const amp = height / 2;
 
       if (context) {
         context.beginPath();

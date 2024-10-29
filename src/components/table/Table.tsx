@@ -212,7 +212,10 @@ export default function Table() {
 
   return (
     <Paper className="table-container">
-      <TableToolbar canEdit={canEdit} onChange={() => setCanEdit(!canEdit)} />
+      <TableToolbar
+        canEdit={canEdit}
+        onSwitchChange={() => setCanEdit(!canEdit)}
+      />
       <Paper className="table-wrapper">
         <TableVirtuoso
           ref={tableRef}
