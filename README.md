@@ -52,9 +52,6 @@ Try the **Video Subtitles Editor** in action: [Live Demo](https://video-subs-edi
    - Adjust text and timing directly in the subtitle table for precise synchronization.
    - Changes are reflected in real-time on the video.
 
-3. **Save Edits**:
-   - Export your edited subtitles in `.srt` format or adjust as needed.
-
 ## Tech Stack
 
 - **Frontend**: React, TypeScript
